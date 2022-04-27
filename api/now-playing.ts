@@ -15,13 +15,11 @@ export default async (req: VercelRequest, res: VercelResponse) => {
     const artists = (item.artists || []).map((a) => a.name).join(', ');
 
     res.send({
-        song: item
-            ? {
-                  track,
-                  artists,
-                  album,
-              }
-            : {},
+        song: {
+            track,
+            artists,
+            album,
+        },
         isPlaying,
         progress,
         duration,
