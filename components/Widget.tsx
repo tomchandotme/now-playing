@@ -14,7 +14,7 @@ type WidgetProps = {
     image?: string;
 };
 
-const Widget = ({ width, height }: WidgetProps) => {
+const Widget = ({ width, height, image }: WidgetProps) => {
     return (
         <svg
             fill="none"
@@ -24,13 +24,17 @@ const Widget = ({ width, height }: WidgetProps) => {
             xmlns="http://www.w3.org/2000/svg"
         >
             <foreignObject>
-                <div {...{ xmlns: 'http://www.w3.org/1999/xhtml' }}>
+                <div
+                    {...{ xmlns: 'http://www.w3.org/1999/xhtml' }}
+                    style={{ width: '100%', height: '100%' }}
+                >
                     <style>{`
                     * {
                         margin: 0;
                         box-sizing: border-box;
                     }
                     `}</style>
+                    <img src={image ?? null} width={64} height={64} />
                 </div>
             </foreignObject>
         </svg>

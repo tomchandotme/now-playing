@@ -1,5 +1,6 @@
 import { VercelRequest, VercelResponse } from '@vercel/node';
 import { renderToString } from 'react-dom/server';
+import Widget from '../components/Widget';
 import { imageUrlToBase64 } from '../utils/image';
 import { nowPlaying } from '../utils/spotify';
 
@@ -38,11 +39,21 @@ export default async (req: VercelRequest, res: VercelResponse) => {
     const coverUrl = images[images.length - 1]?.url;
     const image = coverUrl ? await imageUrlToBase64(coverUrl) : undefined;
 
-    return res.json({
-        song,
-        isPlaying,
-        progress,
-        duration,
-        image,
-    });
+    const data = renderToString(
+        Widget({
+            width: 64,
+            height: 64,
+            song,
+            isPlaying,
+            progress,
+            duration,
+            image,
+        })
+    );
+
+    return res
+        .setHeader('Content-Type', 'image/svg+xml')
+        .setHeader('Cache-Control', 's-maxage=1, stale-while-revalidate')
+        .status(200)
+        .send(data);
 };
