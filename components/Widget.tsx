@@ -45,8 +45,9 @@ const Widget = ({ image, song }: WidgetProps) => {
                     {`
                         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap');
 
-                        .text {
+                        text {
                             filter: url(#shadow);
+                            font-family: 'Noto Sans TC', sans-serif;
                         }
                     `}
                 </style>
@@ -67,7 +68,6 @@ const Widget = ({ image, song }: WidgetProps) => {
                         width={WIDTH - IMAGE_SIZE - PADDING * 2}
                         height={HEIGHT / 2}
                         alignmentBaseline="central"
-                        fontFamily="Noto Sans TC"
                         fontWeight={700}
                         fontSize={16}
                         fill="#fff"
@@ -81,7 +81,6 @@ const Widget = ({ image, song }: WidgetProps) => {
                         width={WIDTH - IMAGE_SIZE - PADDING * 2}
                         height={HEIGHT / 2}
                         alignmentBaseline="central"
-                        fontFamily="Noto Sans TC"
                         fontWeight={400}
                         fontSize={14}
                         fill="#fff"
