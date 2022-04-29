@@ -23,10 +23,11 @@ const Widget = ({ width, height, image }: WidgetProps) => {
             viewBox={`0 0 ${width} ${height}`}
             xmlns="http://www.w3.org/2000/svg"
         >
-            <foreignObject>
+            <image href={image ?? null} width={width} height={height} />
+            {/* <foreignObject>
                 <div
                     {...{ xmlns: 'http://www.w3.org/1999/xhtml' }}
-                    style={{ width: '100%', height: '100%' }}
+                    style={{ width: 64, height: 64, display: 'flex' }}
                 >
                     <style>{`
                     * {
@@ -36,7 +37,7 @@ const Widget = ({ width, height, image }: WidgetProps) => {
                     `}</style>
                     <img src={image ?? null} width={64} height={64} />
                 </div>
-            </foreignObject>
+            </foreignObject> */}
         </svg>
     );
 };

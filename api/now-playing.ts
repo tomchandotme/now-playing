@@ -39,6 +39,8 @@ export default async (req: VercelRequest, res: VercelResponse) => {
     const coverUrl = images[images.length - 1]?.url;
     const image = coverUrl ? await imageUrlToBase64(coverUrl) : undefined;
 
+    console.log(image);
+
     const data = renderToString(
         Widget({
             width: 64,
