@@ -5,6 +5,7 @@ const WIDTH = 480;
 const HEIGHT = 80;
 const IMAGE_SIZE = 64;
 const PADDING = 8;
+const REM = 16;
 
 type WidgetProps = {
     song: {
@@ -29,21 +30,23 @@ const Widget = ({ image, song }: WidgetProps) => {
         >
             <filter id="shadow" colorInterpolationFilters="sRGB">
                 <feDropShadow
-                    dx="0"
-                    dy="1"
-                    stdDeviation="1"
-                    floodOpacity="0.5"
+                    dx={0}
+                    dy={1}
+                    stdDeviation={1}
+                    floodOpacity={0.5}
+                    floodColor="#333"
                 />
                 <feDropShadow
-                    dx="0"
-                    dy="0"
-                    stdDeviation="3"
-                    floodOpacity="0.5"
+                    dx={0}
+                    dy={0}
+                    stdDeviation={3}
+                    floodOpacity={0.5}
+                    floodColor="#333"
                 />
             </filter>
             <defs>
-                <style>
-                    {`
+                <style
+                    children={`
                         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap');
                         rect, image, text {
                             filter: url(#shadow);
@@ -53,7 +56,7 @@ const Widget = ({ image, song }: WidgetProps) => {
                             font-family: 'Noto Sans TC', sans-serif;
                         }
                     `}
-                </style>
+                />
             </defs>
             {song.track && (
                 <g>
@@ -72,7 +75,7 @@ const Widget = ({ image, song }: WidgetProps) => {
                         height={HEIGHT / 2}
                         alignmentBaseline="central"
                         fontWeight={700}
-                        fontSize={16}
+                        fontSize={REM}
                         fill="#fff"
                     >
                         {song.track}
@@ -85,7 +88,7 @@ const Widget = ({ image, song }: WidgetProps) => {
                         height={HEIGHT / 2}
                         alignmentBaseline="central"
                         fontWeight={400}
-                        fontSize={14}
+                        fontSize={0.875 * REM}
                         fill="#fff"
                     >
                         {`${song.artists} - ${song.album}`}
@@ -109,7 +112,7 @@ const Widget = ({ image, song }: WidgetProps) => {
                         height={HEIGHT}
                         alignmentBaseline="central"
                         fontWeight={400}
-                        fontSize={20}
+                        fontSize={1.25 * REM}
                         fill="#fff"
                     >
                         Nothing Playing...
