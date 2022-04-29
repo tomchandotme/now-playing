@@ -1,6 +1,7 @@
+import { ReadableByteStreamController } from 'node:stream/web';
 import React from 'react';
 
-const WIDTH = 320;
+const WIDTH = 480;
 const HEIGHT = 80;
 const IMAGE_SIZE = 64;
 const PADDING = 8;
@@ -44,7 +45,9 @@ const Widget = ({ image, song }: WidgetProps) => {
                 <style>
                     {`
                         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap');
-
+                        rect, image, text {
+                            filter: url(#shadow);
+                        }
                         text {
                             filter: url(#shadow);
                             font-family: 'Noto Sans TC', sans-serif;
@@ -52,15 +55,15 @@ const Widget = ({ image, song }: WidgetProps) => {
                     `}
                 </style>
             </defs>
-            <image
-                href={image ?? null}
-                width={IMAGE_SIZE}
-                height={IMAGE_SIZE}
-                x={PADDING}
-                y={PADDING}
-            />
             {song.track && (
                 <g>
+                    <image
+                        href={image ?? null}
+                        width={IMAGE_SIZE}
+                        height={IMAGE_SIZE}
+                        x={PADDING}
+                        y={PADDING}
+                    />
                     <text
                         className="text"
                         x={IMAGE_SIZE + PADDING * 2}
@@ -89,20 +92,30 @@ const Widget = ({ image, song }: WidgetProps) => {
                     </text>
                 </g>
             )}
-            {/* <foreignObject>
-                <div
-                    {...{ xmlns: 'http://www.w3.org/1999/xhtml' }}
-                    style={{ width: IMAGE_SIZE, height: IMAGE_SIZE, display: 'flex' }}
-                >
-                    <style>{`
-                    * {
-                        margin: 0;
-                        box-sizing: border-box;
-                    }
-                    `}</style>
-                    <img src={image ?? null} width={IMAGE_SIZE} height={IMAGE_SIZE} />
-                </div>
-            </foreignObject> */}
+            {!image && !song.track && (
+                <g>
+                    <rect
+                        fill="#fff"
+                        width={IMAGE_SIZE}
+                        height={IMAGE_SIZE}
+                        x={PADDING}
+                        y={PADDING}
+                    />
+                    <text
+                        className="text"
+                        x={IMAGE_SIZE + PADDING * 2}
+                        y={HEIGHT / 2}
+                        width={WIDTH - IMAGE_SIZE - PADDING * 2}
+                        height={HEIGHT}
+                        alignmentBaseline="central"
+                        fontWeight={400}
+                        fontSize={20}
+                        fill="#fff"
+                    >
+                        Nothing Playing...
+                    </text>
+                </g>
+            )}
         </svg>
     );
 };
