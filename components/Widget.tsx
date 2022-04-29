@@ -1,11 +1,11 @@
 import { ReadableByteStreamController } from 'node:stream/web';
 import React from 'react';
 
-const WIDTH = 480;
-const HEIGHT = 80;
-const IMAGE_SIZE = 64;
-const PADDING = 8;
-const REM = 16;
+const WIDTH = 960;
+const HEIGHT = 160;
+const IMAGE_SIZE = 128;
+const PADDING = 16;
+const REM = 32;
 
 type WidgetProps = {
     song: {
