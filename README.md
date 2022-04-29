@@ -7,7 +7,7 @@ This is a re-implementation of [natemoo-re's now-playing-profile](https://github
 ## Demo
 
 <a href="https://spotify.tomchan.me/now-playing?open">
-    <img src="https://spotify.tomchan.me/now-playing" alt="Now Playing">
+    <img src="https://spotify.tomchan.me/now-playing" width="100%" alt="Now Playing">
 </a>
 
 ## Acknowledgments

@@ -1,8 +1,10 @@
 import { VercelRequest, VercelResponse } from '@vercel/node';
 import { renderToString } from 'react-dom/server';
-import Widget from '../components/Widget';
+
 import { imageUrlToBase64 } from '../utils/image';
 import { nowPlaying } from '../utils/spotify';
+
+import Widget from '../components/Widget';
 
 export default async (req: VercelRequest, res: VercelResponse) => {
     const {
