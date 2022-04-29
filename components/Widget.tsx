@@ -66,9 +66,9 @@ const Widget = ({ image, song }: WidgetProps) => {
                     />
                     <text
                         className="text"
-                        x={IMAGE_SIZE + PADDING * 2}
+                        x={IMAGE_SIZE + PADDING * 3}
                         y={HEIGHT / 4}
-                        width={WIDTH - IMAGE_SIZE - PADDING * 2}
+                        width={WIDTH - IMAGE_SIZE - PADDING * 3}
                         height={HEIGHT / 2}
                         alignmentBaseline="central"
                         fontWeight={700}
@@ -79,9 +79,9 @@ const Widget = ({ image, song }: WidgetProps) => {
                     </text>
                     <text
                         className="text"
-                        x={IMAGE_SIZE + PADDING * 2}
+                        x={IMAGE_SIZE + PADDING * 3}
                         y={(HEIGHT * 3) / 4}
-                        width={WIDTH - IMAGE_SIZE - PADDING * 2}
+                        width={WIDTH - IMAGE_SIZE - PADDING * 3}
                         height={HEIGHT / 2}
                         alignmentBaseline="central"
                         fontWeight={400}
@@ -103,9 +103,9 @@ const Widget = ({ image, song }: WidgetProps) => {
                     />
                     <text
                         className="text"
-                        x={IMAGE_SIZE + PADDING * 2}
+                        x={IMAGE_SIZE + PADDING * 3}
                         y={HEIGHT / 2}
-                        width={WIDTH - IMAGE_SIZE - PADDING * 2}
+                        width={WIDTH - IMAGE_SIZE - PADDING * 3}
                         height={HEIGHT}
                         alignmentBaseline="central"
                         fontWeight={400}
