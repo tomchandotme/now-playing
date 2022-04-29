@@ -53,7 +53,7 @@ export default async (req: VercelRequest, res: VercelResponse) => {
 
     return res
         .setHeader('Content-Type', 'image/svg+xml')
-        .setHeader('Cache-Control', 's-maxage=1, stale-while-revalidate')
+        .setHeader('Cache-Control', 'no-cache')
         .status(200)
         .send(data);
 };
