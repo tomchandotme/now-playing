@@ -116,10 +116,6 @@ const Widget = ({ image, song }: WidgetProps) => {
                     </text>
                 </g>
             )}
-            {/* Fix of blurry text on mobile */}
-            <text transform="matrix(1 0 0 1 7.1079 13.5215)" opacity="0">
-                a
-            </text>
         </svg>
     );
 };
